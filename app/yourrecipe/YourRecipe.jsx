@@ -19,7 +19,7 @@ export default async function YourRecipe({ recipes }) {
     }
   };
 
-  const updateRecipe = () => {};
+ 
 
   return (
     <div>
