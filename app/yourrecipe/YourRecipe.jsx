@@ -19,8 +19,6 @@ export default async function YourRecipe({ recipes }) {
     }
   };
 
-  
-
   return (
     <div>
       {recipes.map((recipe) => (
