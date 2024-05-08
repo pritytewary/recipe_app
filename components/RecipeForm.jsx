@@ -4,6 +4,7 @@ import { IoFastFoodOutline } from "react-icons/io5";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 export default function RecipeForm({ recipe }) {
   const [error, setError] = useState("");
   const [form, setForm] = useState({
@@ -33,7 +34,9 @@ export default function RecipeForm({ recipe }) {
         }
       );
       if (res.ok) {
+        router.refresh();
         alert("Recipe Added");
+
         console.log("recipe added");
       } else {
         const errorMessage = await res.text();
@@ -54,7 +57,12 @@ export default function RecipeForm({ recipe }) {
         </div>
         <h1 className="text-white text-5xl font-signature font-bold">Foodcy</h1>
 
-        <nav className="text-right">
+        <nav className="text-right flex gap-3">
+          <Link href={"/yourrecipe"}>
+            <button className="bg-yellow-400 text-white px-3 py-2 rounded-md font-bold ">
+              Your Recipe
+            </button>
+          </Link>
           <button
             className="bg-yellow-400 text-white px-3 py-2 rounded-md font-bold "
             onClick={() => signOut()}
